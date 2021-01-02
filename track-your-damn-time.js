@@ -90,6 +90,7 @@ function checkDatesFrom(start, dataDir, done) {
         return checkDatesFrom(start.clone().add({ days: 1 }), dataDir, done);
     }
     
+    if (start.isAfter(moment())) return done();
     if (start.isSame(moment(), 'day')) return done();
 
     checkAndPopulate(start, dataDir, function (err) {
