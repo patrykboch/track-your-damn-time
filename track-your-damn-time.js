@@ -85,10 +85,10 @@ function checkAndPopulate(date, dataDir, done) {
 }
 
 function checkDatesFrom(start, dataDir, done) {
-    if (start.day() === 0 || start.day() === 6) {
+//     if (start.day() === 0 || start.day() === 6) {
         //console.log(humanizeDate(start), 'was the weekend');
-        return checkDatesFrom(start.clone().add({ days: 1 }), dataDir, done);
-    }
+//         return checkDatesFrom(start.clone().add({ days: 1 }), dataDir, done);
+//     }
     
 //  Do whenever you want1
 //  Don't do future things
