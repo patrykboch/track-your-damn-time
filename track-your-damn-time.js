@@ -91,6 +91,7 @@ function checkDatesFrom(start, dataDir, done) {
     }
     
     if (!start.isSame(moment(), 'day')) return done();
+    console.log(start.isSame(moment(), 'day'))
 
     checkAndPopulate(start, dataDir, function (err) {
         if (err) throw err;
