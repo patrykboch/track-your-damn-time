@@ -89,13 +89,8 @@ function checkDatesFrom(start, dataDir, done) {
         //console.log(humanizeDate(start), 'was the weekend');
         return checkDatesFrom(start.clone().add({ days: 1 }), dataDir, done);
     }
-
-    // Don't do future things
-    if (start.isAfter(moment())) return done();
-    // Don't do previous things
-    if (start.isBefore(moment(), 'day')) return done();
-    //Do today if after 4pm
-//     if (start.isSame(moment(), 'day') && moment().hour() < 16) return done();
+    
+    if (!start.isSame(moment(), 'day')) return done();
 
     checkAndPopulate(start, dataDir, function (err) {
         if (err) throw err;
