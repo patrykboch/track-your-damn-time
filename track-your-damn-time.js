@@ -90,8 +90,12 @@ function checkDatesFrom(start, dataDir, done) {
         return checkDatesFrom(start.clone().add({ days: 1 }), dataDir, done);
     }
     
+//  Do whenever you want1
+//  Don't do future things
     if (start.isAfter(moment())) return done();
-    if (!start.isSame(moment(), 'day')) return done();
+    if (start.isBefore(moment(), 'day')) return done()
+//  Do today if after 4pm
+//     if (start.isSame(moment(), 'day') && moment().hour() < 9) return done();
     
     checkAndPopulate(start, dataDir, function (err) {
         if (err) throw err;
